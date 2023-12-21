@@ -6,47 +6,43 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">-->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
 
-    <script src="/node_modules/@popperjs/core/dist/umd/popper.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="node_modules/@popperjs/core/dist/umd/popper.js"></script>
+    <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>-->
+    <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>-->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
 </head>
 <body>
-<div id="header" class="mb-3 d-flex p-3 w-100 px-3 align-items-center justify-content-between shadow-lg"  style="background-color: #ffffff; color: #ffffff;">
-    <div class="d-flex align-items-center">
-        <div id="blog" class="fw-bold fs-5 text-dark mx-3">Блог №415</div>
-        <a href="/" id="own" class="text-dark mx-3 text-decoration-none">Главная</a>
-        <div><a href="#" id="authors" class="text-dark mx-3 text-decoration-none">Авторы</a></div>
-        <div><a href="/communities" id="groups" class="text-dark mx-3 text-decoration-none">Группы</a></div>
+
+<div class="card-header p-2 col-md-12 d-flex align-items-center justify-content-between" style="background-color: #320095">
+    <div class="col-md-6">
+        <div id="blog" class="fw-bold fs-5 text-white mx-3">Блог №415</div>
     </div>
-    <div class="menu-container" id="loginController">
-        <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropButton">Ваш логин</button>
-            <ul class="dropdown-menu" aria-labelledby="dropButton">
-                <li><a class="dropdown-item" href="/profile">Профиль</a></li>
-                <li><a class="dropdown-item cursor-pointer" id="logoutItem">Выход</a></li>
-            </ul>
+    <div class="col-md-6 text-sm-end">
+        <div class="menu-container" id="loginController">
+            <div class="dropdown">
+                <button class="btn dropdown-toggle fw-bold fs-6 text-white mx-3" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" id="dropButton">Ваш логин
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropButton">
+                    <li><a class="dropdown-item" href="/profile">Профиль</a></li>
+                    <li><a class="dropdown-item cursor-pointer" id="logoutItem">Выход</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="loginTop">
+            <a href="/login" class="fw-bold fs-6 text-white mx-3 text-decoration-none">Вход</a>
         </div>
     </div>
-    <div id="loginTop">
-        <a href="/login" class="text-dark me-3 text-decoration-none d-flex">Вход</a>
-    </div>
+</div>
 
+<div class="card-body" id="concreteCard">
 
 </div>
 
-<div class="container" id="concreteCard">
-
-</div>
-
-<footer class="text-dark p-3 mt-5 px-5 w-100 border p-3 border-secondary" style="background-color: #dcdcdc; color: #333333;">
-    <p class="mb-0">&#169; 2023-Блог№415</p>
-</footer>
 
 </body>
-<script type="module" src="/indexLogic.js"></script>
-<script type="module" src="/mainFunctions.js"></script>
+
 </html>
