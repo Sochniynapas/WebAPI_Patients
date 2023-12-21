@@ -1,4 +1,3 @@
-import {checkUserLogging, handleLogout} from "./mainFunctions.js";
 let dataForResponse;
 let contentOfACard;
 let response;
@@ -9,7 +8,7 @@ const pathName = window.location.pathname;
 
 switch (pathName){
     case '/':{
-        response = await fetch('/mainPage/ownPage.html');
+        response = await fetch('/mainDirectory/ownPage.html');
         dataForResponse = await response.text();
         contentOfACard = document.getElementById('concreteCard');
         contentOfACard.innerHTML = dataForResponse;
