@@ -1,3 +1,5 @@
+import {getProfile} from "../curls.js";
+
 const token = localStorage.getItem('token')
 
 function parseToken(token) {
@@ -10,7 +12,7 @@ function parseToken(token) {
 }
 
 function isTokenValid() {
-    if(token !== undefined) {
+    if(token !== null) {
         const tokenPayload = parseToken(token);
         if (!tokenPayload) {
             console.log('Ошибка при парсинге токена');
@@ -25,26 +27,27 @@ function isTokenValid() {
     return false;
 
 }
-function removeTokenFromLocalStorage() {
+export async function removeTokenFromLocalStorage() {
     localStorage.removeItem('authToken');
 }
 
-function checkUserToken() {
+export async function checkUserToken() {
     const drop = document.getElementById('loginController');
-    const writePost = document.getElementById('writePost');
     const loginBtn = document.getElementById('loginTop');
     const headers = new Headers({
         'Authorization': `Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json',
     });
     if (isTokenValid()) {
+        const response = await fetch(`${getProfile}`, {
+            method: 'GET',
+            headers: headers,
+        });
         const data = await response.json();
-        document.getElementById('dropButton').textContent = data.email;
+
+        document.getElementById('dropButton').textContent = data.name;
         loginBtn.style.display = 'none';
     } else {
         drop.style.display = 'none';
-        if (writePost != null) {
-            writePost.style.display = 'none';
-        }
     }
 }

@@ -1,3 +1,5 @@
+import {checkUserToken, removeTokenFromLocalStorage} from "./mainFunctions.js";
+
 let dataForResponse;
 let contentOfACard;
 let response;
@@ -6,13 +8,14 @@ const pathName = window.location.pathname;
 // export const regularForConcretePost = /^\/post\/([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$/;
 // export const regularForCommunity = /^\/communities\/([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}).*$/;
 
+
+debugger
 switch (pathName){
     case '/':{
-        response = await fetch('/mainDirectory/ownPage.html');
+        response = await fetch('/mainDirectory/index.html');
         dataForResponse = await response.text();
         contentOfACard = document.getElementById('concreteCard');
-        contentOfACard.innerHTML = dataForResponse;
-        await checkUserLogging();
+        await checkUserToken();
 
         contentOfACard.querySelectorAll('script').forEach(script => {
             const newScript = document.createElement("script")
@@ -62,4 +65,4 @@ switch (pathName){
     //     }
     //     break;
 }
-logoutItem.addEventListener('click', handleLogout);
+logoutItem.addEventListener('click', removeTokenFromLocalStorage);
